@@ -1,0 +1,74 @@
+from random import choice
+from replit import clear
+from art import logo
+
+score = 0
+start = True
+
+
+def game():
+
+	names = [
+	 '@instagram', '@cristiano', '@kyliejenner', '@leomessi', '@selenagomez',
+	 '@therock', '@arianagrande', '@kimkardashian', '@beyonce',
+	 '@khloekardashian', '@justinbieber'
+	]
+	# print(names)
+	followers = [552, 484, 370, 363, 348, 339, 332, 330, 276, 273, 259]
+	# print(followers)
+	ask = choice(names)
+	askscore = followers[names.index(ask)]
+	# print(askscore)
+	names.remove(ask)
+	ask2 = choice(names)
+	names = [
+	 '@instagram', '@cristiano', '@kyliejenner', '@leomessi', '@selenagomez',
+	 '@therock', '@arianagrande', '@kimkardashian', '@beyonce',
+	 '@khloekardashian', '@justinbieber'
+	]
+	# print(names)
+
+	ask2score = followers[names.index(ask2)]
+	# print(ask2score)
+	global score
+	global start
+
+	print(f"{ask} vs {ask2}\n")
+
+	question = input(f"is {ask} higher or lower? : ").lower()
+
+	if askscore > ask2score and question == "higher":
+		print("Your right!")
+		score += 1
+	elif askscore < ask2score and question == "lower":
+		print("Your right!")
+		score += 1
+	else:
+		print(f"\nOoh your wrong! FINALSCORE IS {score}\n")
+		start = False
+
+
+while start:
+	while start:
+		clear()
+		print(logo)
+		print(f"YOUR CURRENT SCORE IS {score}\n")
+		game()
+	restart = input("do you want play again? 'y' or 'n' : ")
+	if restart == 'y':
+		start = True
+		score = 0
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
